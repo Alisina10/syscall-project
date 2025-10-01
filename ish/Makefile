@@ -1,4 +1,4 @@
-CFLAGS  += -g -O1 -std=gnu99 -Wno-unused-result
+CFLAGS  += -g -O1 -std=gnu99 -Wno-unused-result -D ISH_USE_STDLIB
 LDFLAGS += -static
 
 TARGET  = ish

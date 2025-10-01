@@ -6,7 +6,7 @@ COM 341, Operating Systems
 
 1. Navigate to the directory containing the Debian hard drive image. Use the one that you can use in virtualization mode.
 
-        cd 'syscall-project/debian/amd64' # or 'syscall-project/debian/arm64' if you are on ARM host
+        cd '<project directory>/platforms/amd64' # or '<project directory>/platforms/arm64' if you are on ARM host
 
 2. Launch Debian Linux in QEMU.
 
@@ -16,9 +16,9 @@ COM 341, Operating Systems
 
 4. Copy the `ish2` directory from your machine to the emulated system using `scp` or Git.
 
-5. Log into the Debian system through SSH using the credentials specified during the installation process.
+5. Log into the Debian system through SSH using the credentials specified during the installation process. The x86-64 Debian QEMU scripts are configured to use port 2222 for SSH. The ARM64 scripts use port 2223, allowing you to run both systems at the same time. Ensure that nothing else is using these ports before starting your virtual machines.
 
-        ssh -p 2222 <login>@127.0.0.1 # or ssh -p 2223 <login>@127.0.0.1
+        ssh -p 2222 <login>@127.0.0.1 # or `-p 2223`
 
 6. Change to the directory `ish2`.
 
@@ -83,4 +83,4 @@ COM 341, Operating Systems
 
 ### Reading
 
-* [C Books and Guides](https://github.com/auca/com.341/blob/master/Practice_Tasks/Tasks.md)
+* [C Books and Guides](https://github.com/auca/com.341/blob/master/Practice_Tasks/Tasks.md#documentation)

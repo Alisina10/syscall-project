@@ -1,12 +1,12 @@
 COM-341, Operating Systems
 ==========================
-# Project #1, Part #1, Debian for ARMv8 CPUs
+# Project #1, Part #1, Debian for ARM64 CPUs
 
 ## Installing Debian
 
-First, create an isolated ARMv8 GNU/Linux environment through the QEMU virtualization and emulation system. You should try your best to run QEMU as virtualization software if you have an ARMv8 host environment (e.g., Apple M1, M2 machines). If not, run it as an emulator.
+First, create an isolated ARM64 GNU/Linux environment through the QEMU virtualization and emulation system. You should try your best to run QEMU as virtualization software if you have an ARM64 host environment (e.g., Apple M1, M2, M3, M4, ... machines). If not, run it as an emulator.
 
-If you have an ARMv8 CPU and virtualization technologies are enabled in your firmware (BIOS, UEFI) settings, edit the following files in `platforms/amd64`:
+If you have an ARM64 CPU and virtualization technologies are enabled in your firmware (BIOS, UEFI) settings, edit the following files in `platforms/amd64`:
 
 * `start.sh`
 * `start_installation.sh`
@@ -14,16 +14,14 @@ If you have an ARMv8 CPU and virtualization technologies are enabled in your fir
 In each file, replace the word `tcg` on line 17 or 23 with:
 
 * `whpx` if you are on Windows 10+ and have Hyper-V [enabled](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
-* `hvf` if you are on macOS 11.7+ with the `,highmem=off` [option](https://mstone.info/posts/qemu-aarch64-hvf-20210831)
+* `hvf` if you are on macOS 15.6+
 * `kvm` if you are on GNU/Linux and have the `qemu-kvm` package installed
 
 If you cannot enable virtualization on your computer or are using lab machines, retain `tcg` on line 17 or 23 in all the mentioned files. Note that QEMU will run as an emulator in this case. Emulation is slower than virtualization, so the subsequent steps might take longer than expected.
 
 Now, with or without virtualization, proceed with the following steps:
 
-1. Navigate to the project directory `./syscall-project/`.
-
-        cd 'syscall-project/'
+1. Navigate to the project directory.
 
 2. Download the QEMU hardware emulator suitable for your operating system.
 
@@ -34,7 +32,7 @@ Now, with or without virtualization, proceed with the following steps:
         brew install qemu
 
         # On Ubuntu Linux
-        sudo apt install curl qemu-system # Add `qemu-kvm` if virtualization is available
+        sudo apt install curl qemu-system qemu-utils # Add `qemu-kvm` if virtualization is available
 
 3. Change to the directory `./platforms/arm64`.
 
@@ -58,30 +56,35 @@ Now, with or without virtualization, proceed with the following steps:
 
 8. In QEMU, switch to the serial console using `CTRL+ALT+2`. Choose the `Install` option in the bootloader using the `Arrow` keys or the `Backspace` key. Follow the on-screen instructions to complete the system installation. It's advisable to close QEMU after the first successful reboot during the installation and then boot Debian using the `./start.sh` script.
 
-![Step 1](https://i.imgur.com/StvLIoc.png)
-![Step 2](https://i.imgur.com/kqbbdoC.png)
-![Step 3](https://i.imgur.com/kLAZai3.png)
-![Step 4](https://i.imgur.com/AnPBFQ9.png)
-![Step 5](https://i.imgur.com/upEtoa6.png)
-![Step 6](https://i.imgur.com/2alzMWR.png)
-![Step 7](https://i.imgur.com/ZshrQGg.png)
-![Step 8](https://i.imgur.com/gykJ8ih.png)
-![Step 9](https://i.imgur.com/EyBWGFV.png)
-![Step 10](https://i.imgur.com/UCL8JwT.png)
-![Step 11](https://i.imgur.com/WwAa4qX.png)
-![Step 12](https://i.imgur.com/EoBDxLl.png)
-![Step 13](https://i.imgur.com/UzltsBc.png)
-![Step 14](https://i.imgur.com/JwVjw8Z.png)
-![Step 15](https://i.imgur.com/oJAFv9U.png)
-![Step 16](https://i.imgur.com/nuG1fFe.png)
-![Step 17](https://i.imgur.com/e7QoSdK.png)
-![Step 18](https://i.imgur.com/TJ6fiYI.png)
-![Step 19](https://i.imgur.com/0MABUKh.png)
-![Step 20](https://i.imgur.com/vxEvNE5.png)
-![Step 21](https://i.imgur.com/eAsF7cf.png)
-![Step 22](https://i.imgur.com/GluKM7U.png)
-![Step 23](https://i.imgur.com/ljM6u9X.png)
-![Step 24](https://i.imgur.com/sldiY11.png)
+![Step 1](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/01.png)
+![Step 2](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/02.png)
+![Step 3](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/03.png)
+![Step 4](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/04.png)
+![Step 5](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/05.png)
+![Step 6](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/06.png)
+![Step 7](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/07.png)
+![Step 8](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/08.png)
+![Step 9](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/09.png)
+![Step 10](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/10.png)
+![Step 11](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/11.png)
+![Step 12](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/12.png)
+![Step 13](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/13.png)
+![Step 14](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/14.png)
+![Step 15](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/15.png)
+![Step 16](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/16.png)
+![Step 17](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/17.png)
+![Step 18](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/18.png)
+![Step 19](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/19.png)
+![Step 20](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/20.png)
+![Step 21](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/21.png)
+![Step 22](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/22.png)
+![Step 23](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/23.png)
+![Step 24](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/24.png)
+![Step 25](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/25.png)
+
+When prompted by the installer, reboot. Afterward, the installer will restart. Shut down QEMU, then boot Debian using the `./start.sh` script.
+
+![Step 26](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/arm64/26.png)
 
 ## Starting and Stopping the System
 
@@ -110,7 +113,7 @@ sudo systemctl poweroff
 ## Installing Additional Software
 
 1. Boot up the system and log in.
-2. Install the GNU C compiler, the GNU Make build system, the GNU Debugger, and the Git version control system.
+2. Install the GNU C compiler, the GNU Make build system, the GNU Debugger, and the Git version control system. You may install additional software, such as a code editor, for your convenience.
 
         sudo apt-get update
         sudo apt-get install gcc make gdb git

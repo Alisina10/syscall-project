@@ -14,17 +14,14 @@ If you have an x86-64 CPU and virtualization technologies are enabled in your fi
 In each file, replace the word `tcg` on line 17 or 23 with:
 
 * `whpx,kernel-irqchip=off` if you are on Windows 10+ with Hyper-V [enabled](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
-* `hax` if you are on Windows 7+ with an Intel CPU and have [Intel HAXM](https://github.com/intel/haxm) hypervisor installed
-* `hvf` if you are on macOS 10.10+
+* `hvf` if you are on macOS 15.6+
 * `kvm` if you are on GNU/Linux and have the `qemu-kvm` package installed
 
 If you cannot enable virtualization on your computer or are using lab machines, retain the `tcg` on line 17 or 23 in all the files. Note that QEMU will run as an emulator in this case, and the emulation process will be slower compared to virtualization. The steps below may consequently take more time.
 
 Now, with or without virtualization, proceed with the steps below:
 
-1. Navigate to the project directory `./syscall-project/`.
-
-        cd 'syscall-project/'
+1. Navigate to the project directory.
 
 2. Download the QEMU hardware emulator for your operating system.
 
@@ -35,7 +32,7 @@ Now, with or without virtualization, proceed with the steps below:
         brew install qemu
 
         # On Ubuntu Linux
-        sudo apt install curl qemu-system # Add `qemu-kvm` if virtualization is available
+        sudo apt install curl qemu-system qemu-utils # Add `qemu-kvm` if virtualization is available
 
 3. Change to the directory `./platforms/amd64`.
 
@@ -57,38 +54,37 @@ Now, with or without virtualization, proceed with the steps below:
 
         ./start_installation.sh
 
-8. Select the `Install` option (not the `Graphical Install` option) in the bootloader. Use `Arrow` keys or `Backspace` to navigate the screen. Follow the installation steps provided. It's recommended to close QEMU after the first successful reboot during the installation, and boot Debian for the first time using the `./start.sh` script.
+8. Select the `Install` option (not the `Graphical Install` option if present) in the bootloader. Use `Arrow` keys or `Backspace` to navigate the screen. Follow the installation steps provided. It's recommended to close QEMU after the first successful reboot during the installation, and boot Debian for the first time using the `./start.sh` script.
 
-![Step 1](https://i.imgur.com/lCeaTXs.png)
-![Step 2](https://i.imgur.com/DBF9IWb.png)
-![Step 3](https://i.imgur.com/js1RyDm.png)
-![Step 4](https://i.imgur.com/9Y3nvGd.png)
-![Step 5](https://i.imgur.com/GUMJbAk.png)
-![Step 6](https://i.imgur.com/gT6pc0n.png)
-![Step 7](https://i.imgur.com/e0FkqAq.png)
-![Step 8](https://i.imgur.com/96R3bnt.png)
-![Step 9](https://i.imgur.com/sIFMoJI.png)
-![Step 10](https://i.imgur.com/PN2lb5G.png)
-![Step 11](https://i.imgur.com/D4SFyOc.png)
-![Step 12](https://i.imgur.com/UicmrIP.png)
-![Step 13](https://i.imgur.com/W1t7TPA.png)
-![Step 14](https://i.imgur.com/WkQrLSQ.png)
-![Step 15](https://i.imgur.com/u5OAK4A.png)
-![Step 16](https://i.imgur.com/leU3INr.png)
-![Step 17](https://i.imgur.com/NEgf6VD.png)
-![Step 18](https://i.imgur.com/woGnVTu.png)
-![Step 19](https://i.imgur.com/rriDTMU.png)
-![Step 20](https://i.imgur.com/tvqFeV1.png)
-![Step 21](https://i.imgur.com/Ds5Yha7.png)
-![Step 22](https://i.imgur.com/uNXfljW.png)
-![Step 23](https://i.imgur.com/QvCRPDU.png)
-![Step 24](https://i.imgur.com/a57Y9zK.png)
-![Step 25](https://i.imgur.com/3Llnuf8.png)
-![Step 26](https://i.imgur.com/LxMDXMD.png)
+![Step 1](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/01.png)
+![Step 2](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/02.png)
+![Step 3](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/03.png)
+![Step 4](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/04.png)
+![Step 5](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/05.png)
+![Step 6](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/06.png)
+![Step 7](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/07.png)
+![Step 8](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/08.png)
+![Step 9](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/09.png)
+![Step 10](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/10.png)
+![Step 11](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/11.png)
+![Step 12](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/12.png)
+![Step 13](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/13.png)
+![Step 14](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/14.png)
+![Step 15](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/15.png)
+![Step 16](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/16.png)
+![Step 17](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/17.png)
+![Step 18](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/18.png)
+![Step 19](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/19.png)
+![Step 20](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/20.png)
+![Step 21](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/21.png)
+![Step 22](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/22.png)
+![Step 23](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/23.png)
+![Step 24](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/24.png)
+![Step 25](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/25.png)
 
-You may not see the screen below and instead see a firmware error complaining that it failed to find a bootloader. In such a case, close the current QEMU instance and restart the emulator with `./start.sh`, click inside of the QEMU window to focus it, and press `ESC` quickly to enter the firmware settings. Manually configure the boot menu by removing all the existing entries and adding a new one pointing to the `grubx64.efi` file in the `EFI/debian` directory on the virtual hard drive. Save the changes and exit the firmware settings. The system should now boot into Debian.
+When prompted by the installer, reboot. Afterward, the installer will restart. Shut down QEMU, then boot Debian using the `./start.sh` script.
 
-![Step 30](https://i.imgur.com/kbfGTIO.png)
+![Step 26](https://raw.githubusercontent.com/rachmiroff/images/refs/heads/main/auca/com-341/fall-2025/syscall-project/amd64/26.png)
 
 ## Starting and Stopping the System
 
@@ -118,7 +114,7 @@ sudo systemctl poweroff
 
 1. Start the system and log in.
 
-2. Install the GNU C compiler, GNU Make build system, GNU Debugger, and Git version control system.
+2. Install the GNU C compiler, GNU Make build system, GNU Debugger, and Git version control system. You may install additional software, such as a code editor, for your convenience.
 
         sudo apt-get update
         sudo apt-get install gcc make gdb git

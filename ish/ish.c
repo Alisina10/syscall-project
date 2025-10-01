@@ -126,7 +126,6 @@ int main(int argc, char **argv, char **envp)
                 Max_Argument_Count
             );
 
-
         const char *command = arguments[0];
         if (!command) {
             continue;
@@ -293,8 +292,7 @@ int main(int argc, char **argv, char **envp)
 
             `man 2 open`
 
-            http://www.tldp.org/LDP/
-                GNU-Linux-Tools-Summary/html/x9543.htm
+            http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/x9543.htm
         */
         int stdout_descriptor =
             !stdout_file ?

@@ -31,7 +31,7 @@
 
         https://github.com/torvalds/linux/tree/master/arch/x86/entry/syscalls
 
-    Linux ARMv8-A System Call Tables from Android Bionic libc
+    Linux ARM64 System Call Tables from Android Bionic libc
 
         `unistd.h`
 

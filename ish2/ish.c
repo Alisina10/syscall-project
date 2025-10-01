@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/stat.h>
@@ -131,8 +132,8 @@ int main(int argc, char **argv, char **envp)
             char candidate[Max_Executable_Path_Length + 1];
             candidate[Max_Executable_Path_Length] = '\0';
 
-	    struct stat stat_buffer;
-	    struct stat *stat_result = &stat_buffer;
+            struct stat stat_buffer;
+            struct stat *stat_result = &stat_buffer;
             if (stat(executable, stat_result) != 0) {
                 executable = 0;
                 for (char *cursor = paths; cursor && !executable; ) {

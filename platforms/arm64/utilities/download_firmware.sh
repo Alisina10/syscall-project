@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
-FIRMWARE_ARCHIVE='firmware-aarch64.tar.gz'
+FIRMWARE_ARCHIVE='firmware-arm64.tar.gz'
 EFI_FIRMWARE_CODE='AAVMF_CODE.fd'
 EFI_FIRMWARE_VARS='AAVMF_VARS.fd'
 LINUX_KERNEL='vmlinuz'
 LINUX_RAMDISK='initrd.gz'
 
-URL="https://www.dropbox.com/scl/fi/4nmn9evesmgh7igq967dm/$FIRMWARE_ARCHIVE?rlkey=xt5okbtm4d242o92bg2wbpv0e&dl=1"
+URL="https://www.dropbox.com/scl/fi/qn44feqdw0zr3twcbd96o/$FIRMWARE_ARCHIVE?rlkey=1ci5wuxktia2lr2keo1lcr8nb&dl=1"
 curl --location -C - --output "$FIRMWARE_ARCHIVE" "$URL"
 
 test -e "$EFI_FIRMWARE_CODE" && mv "$EFI_FIRMWARE_CODE" "$EFI_FIRMWARE_CODE".old

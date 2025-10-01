@@ -17,9 +17,9 @@ Note: The process outlined below needs to be repeated for every CPU architecture
 
 4. Transfer the `ish` directory from your machine to the emulated system using `scp` or Git.
 
-5. Log into the Debian system via SSH using the credentials specified during the installation process.
+5. Log into the Debian system via SSH using the credentials specified during the installation process. The x86-64 Debian QEMU scripts are configured to use port 2222 for SSH. The ARM64 scripts use port 2223, allowing you to run both systems at the same time. Ensure that nothing else is using these ports before starting your virtual machines.
 
-        ssh -p 2222 <login>@127.0.0.1 # or ssh -p 2223 <login>@127.0.0.1
+        ssh -p 2222 <login>@127.0.0.1 # or `-p 2223`
 
 6. Change to the `ish` directory.
 
@@ -181,7 +181,7 @@ int main(int argc, char **argv[])
 * [GCC-Inline-Assembly-HOWTO](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
 * [ARM GCC Inline Assembler Cookbook](http://www.ethernut.de/en/documents/arm-inline-asm.html)
 * [Linux x86-64 System Call Tables](https://github.com/torvalds/linux/tree/master/arch/x86/entry/syscalls/syscall_64.tbl)
-* [Bionic Standard C Library, Linux ARMv8-A System Call Table](https://github.com/android/platform_bionic/blob/master/libc/kernel/uapi/asm-generic/unistd.h)
+* [Bionic Standard C Library, Linux ARM64 System Call Table](https://github.com/android/platform_bionic/blob/master/libc/kernel/uapi/asm-generic/unistd.h)
 
 ### Documentation
 
@@ -195,6 +195,6 @@ int main(int argc, char **argv[])
 
 ### Reading
 
-* [C Books and Guides](https://github.com/auca/com.341/blob/master/Practice_Tasks/Tasks.md)
+* [C Books and Guides](https://github.com/auca/com.341/blob/master/Practice_Tasks/Tasks.md#documentation)
 * _Understanding the Linux Kernel, Third Edition by Daniel P. Bovet and Marco Cesati, Chapters 4, 10_
 * _Linux Kernel Development, Third Edition by Robert Love, Chapters 5, 7_
